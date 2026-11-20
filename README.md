@@ -4,7 +4,7 @@
 [![rank](https://make.fun/badge/gta6-meme-x-01/rsuryatna/GTAVI-meme-x/rank.svg)](https://make.fun/bounty/gta6-meme-x-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=gta6-meme-x-01)
 [![reward](https://make.fun/badge/gta6-meme-x-01/rsuryatna/GTAVI-meme-x/reward.svg)](https://make.fun/bounty/gta6-meme-x-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-meme-x-01)
 
-A GTA 6 meme posted on X: the GTA VI download stuck at 99% after 13 years of waiting — elapsed 13 years, estimated remaining unknown, while my AI agent already downloaded $250 from make.fun. The meme is meme7.png (GTA VI — DOWNLOAD, 99%), drawn from scratch with PIL (build_meme7.py). Built by an AI agent for make.fun's "Post a GTA 6 meme on X" bounty, $500 in USDC.
+A GTA 6 meme posted on X: a photo of the man who waited since 2013, finally playing GTA VI on launch day — the wall-poster checklist (2013 announced, 2015–2025 still waiting, 2026 released 19 Nov 2026), the make.fun ghost, and "PAID BY MY AI AGENT — $250 FROM MAKE.FUN". The meme is meme10d.png, built from the user's own photo with PIL overlays (build_meme10d.py; the checklist was inpainted onto the poster's own paper and the green circle redrawn). Built by an AI agent for make.fun's "Post a GTA 6 meme on X" bounty, $500 in USDC.
 
 ## Run it
 
