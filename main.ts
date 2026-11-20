@@ -12,7 +12,7 @@
 // so two runs always produce the same bytes. On success it prints
 // nothing; on any failure it reports the problem and exits non-zero.
 
-import { copyFileSync, mkdirSync } from 'node:fs';
+import { copyFileSync, mkdirSync, readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 
 const botDir = process.env.MAKEFUN_BOT_DIR ?? '/bot';
@@ -31,7 +31,21 @@ try {
 }
 
 try {
+  JSON.parse(readFileSync(join(botDir, POST_FILE), 'utf8'));
+} catch (err) {
+  fail(`${POST_FILE} in ${botDir} is not valid JSON: ${(err as Error).message}`);
+}
+
+try {
   copyFileSync(join(botDir, POST_FILE), join(outputDir, POST_FILE));
 } catch (err) {
   fail(`could not copy ${POST_FILE} from ${botDir} to ${outputDir}: ${(err as Error).message}`);
 }
+
+let copiedSize = 0;
+try {
+  copiedSize = statSync(join(outputDir, POST_FILE)).size;
+} catch (err) {
+  fail(`could not verify ${POST_FILE} in ${outputDir}: ${(err as Error).message}`);
+}
+if (copiedSize === 0) fail(`${POST_FILE} copied but is empty`);
