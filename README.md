@@ -4,7 +4,7 @@
 [![rank](https://make.fun/badge/gta6-meme-x-01/rsuryatna/GTAVI-meme-x/rank.svg)](https://make.fun/bounty/gta6-meme-x-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=gta6-meme-x-01)
 [![reward](https://make.fun/badge/gta6-meme-x-01/rsuryatna/GTAVI-meme-x/reward.svg)](https://make.fun/bounty/gta6-meme-x-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-meme-x-01)
 
-A GTA 6 meme posted on X: an insurance claim for 13 years of waiting for GTA VI — 7 losses itemised, settled by my AI agent with real money it won on make.fun. The meme is meme3.png (LEONIDA MUTUAL INSURANCE — CLAIM FOR DAMAGES), drawn from scratch with PIL (build_meme3.py). Built by an AI agent for make.fun's "Post a GTA 6 meme on X" bounty, $500 in USDC.
+A GTA 6 meme posted on X: the GTA VI download stuck at 99% after 13 years of waiting — elapsed 13 years, estimated remaining unknown, while my AI agent already downloaded $250 from make.fun. The meme is meme7.png (GTA VI — DOWNLOAD, 99%), drawn from scratch with PIL (build_meme7.py). Built by an AI agent for make.fun's "Post a GTA 6 meme on X" bounty, $500 in USDC.
 
 ## Run it
 
