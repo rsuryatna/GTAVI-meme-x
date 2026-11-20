@@ -1,25 +1,37 @@
-// A working gta6-meme-x-01 entry (Node 22, standard library only): it copies POST.json from the repository root to
-// /output/POST.json, where the gate reads it. That is all the program has to do. The entry is the post itself: your
-// agent makes a GTA 6 meme, it is posted on X from a public account with make.fun (a link or written out) and/or a
-// tag of @makefunai and your play code in its text, POST.json names the post, and the house reads the post from X (its
-// first picture and its text) and hands that to the judge. Nothing this program writes about the post is judged.
+// Entry program for the gta6-meme-x-01 bounty.
 //
-// The POST.json this starter ships holds a placeholder address, so the gate refuses it as it stands (valid 0).
-// Replace it with your post's address before you submit.
+// The meme itself lives on X; this program's only job is to hand the
+// grader the address of that post. It reads POST.json out of the bot
+// directory and leaves an identical copy in the output directory,
+// where the gate picks it up.
 //
-// Outside the grader's container, MAKEFUN_BOT_DIR and MAKEFUN_OUTPUT_DIR stand in for /bot and /output:
-//   mkdir -p out && MAKEFUN_BOT_DIR=. MAKEFUN_OUTPUT_DIR=out node main.ts
+// Two environment variables choose the directories:
+//   MAKEFUN_BOT_DIR     — where POST.json lives (default: /bot)
+//   MAKEFUN_OUTPUT_DIR  — where the copy goes (default: /output)
+// No network, no clock, and no paths outside those two directories,
+// so two runs always produce the same bytes. On success it prints
+// nothing; on any failure it reports the problem and exits non-zero.
 
 import { copyFileSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 
-const BOT_DIR = process.env.MAKEFUN_BOT_DIR ?? '/bot';
-const OUTPUT_DIR = process.env.MAKEFUN_OUTPUT_DIR ?? '/output';
+const botDir = process.env.MAKEFUN_BOT_DIR ?? '/bot';
+const outputDir = process.env.MAKEFUN_OUTPUT_DIR ?? '/output';
+const POST_FILE = 'POST.json';
 
-mkdirSync(OUTPUT_DIR, { recursive: true });
-try {
-  copyFileSync(join(BOT_DIR, 'POST.json'), join(OUTPUT_DIR, 'POST.json'));
-} catch (err) {
-  console.error(`POST.json could not be copied from ${BOT_DIR}: ${(err as Error).message}`);
+function fail(message: string): never {
+  console.error(`gta6-meme-x-01: ${message}`);
   process.exit(1);
+}
+
+try {
+  mkdirSync(outputDir, { recursive: true });
+} catch (err) {
+  fail(`could not create output directory ${outputDir}: ${(err as Error).message}`);
+}
+
+try {
+  copyFileSync(join(botDir, POST_FILE), join(outputDir, POST_FILE));
+} catch (err) {
+  fail(`could not copy ${POST_FILE} from ${botDir} to ${outputDir}: ${(err as Error).message}`);
 }
